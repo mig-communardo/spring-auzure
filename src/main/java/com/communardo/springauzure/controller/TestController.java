@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.*;
 
 @RestController
@@ -14,6 +13,11 @@ public class TestController {
 
 
     public static List<User> users = Arrays.asList(new User(1, "Mirjan"), new User(2, "Paula"));
+
+    @GetMapping("/")
+    public ResponseEntity<String> welcome() {
+        return ResponseEntity.ok("Welcome");
+    }
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
