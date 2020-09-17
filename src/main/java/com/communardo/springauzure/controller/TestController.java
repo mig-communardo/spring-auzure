@@ -15,6 +15,10 @@ public class TestController {
 
     public static List<User> users = Arrays.asList(new User(1, "Mirjan"), new User(2, "Paula"));
 
+    @GetMapping("/")
+    public String welcome (){
+        return "welcome";
+    }
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(users);
@@ -25,4 +29,5 @@ public class TestController {
         Optional<User> user = users.stream().filter(usr -> usr.getId() == id).findFirst();
         return ResponseEntity.of(user);
     }
+    /* push to master */
 }
